@@ -1,0 +1,57 @@
+/* Index section */
+
+.index {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--mid-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.index__logo {
+    text-align: center;
+    position: relative;
+}
+.index__logo__title {
+    font-size: 10rem;
+    position: absolute;
+    top: 0;
+}
+.index__logo__title--blurred {
+    font-size: 10rem;
+    filter: blur(4px);
+    opacity: 0.3;
+}
+.index__logo__title--small {
+    font-size: 3rem;
+}
+
+.index__gamedemo__gamehere {
+    width: 50rem;
+    height: 50rem;
+    background-color: var(--dark-blue);
+    margin: 4rem 0;
+    display: grid;
+    place-content: center;
+}
+
+.index__buttons__play {
+    border: none;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 1.5rem;
+    background-color: var(--light-blue);
+    transition: transform 0.2s ease;
+}
+.index__buttons__play:hover {
+   background-color: var(--light-blue-hover);
+   transform: translateY(-10%);
+}
+.index__buttons__play:active {
+   background-color: var(--light-blue);
+   transform: translateY(0);
+}
+.index__buttons__play--text {
+    color: var(--mid-blue);
+    font-size: 3rem;
+}

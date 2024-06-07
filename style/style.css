@@ -4,6 +4,14 @@
     src: url('../fonts/Tiny5/Tiny5-Regular.ttf') format('truetype');
 }
 
+/* Common constants */
+:root {
+    --dark-blue: #181825;
+    --mid-blue: #222738;
+    --light-blue: #6e7888;
+    --light-blue-hover: #808c9f;
+}
+
 /* Global */
 html {
     font-size: 62.5%;
@@ -18,87 +26,5 @@ p,h1,h2,h3,h4,span{
     font-family: 'Tiny5';
     text-transform: uppercase;
 
-    color: #6e7888;
+    color: var(--light-blue);
 }
-
-
-/* Game Section */
-
-.game {
-    background-color: #222738;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    place-content: center;
-}
-.game__main {
-    display: flex;
-    align-items: center;
-    margin-top: 7rem; /* for a vertical alignment with game-logo */
-}
-.game__start-btn {
-    width: 4rem;
-    height: 15rem;
-    border-radius: 2rem;
-    font-size: 2.5rem;
-    padding-bottom: 0.5rem;
-    display: grid;
-    place-content: center;
-    border: none;
-    background-color: #6e7888;
-    margin: 0 3rem;
-}
-.game__start-btn:hover {
-    transform: translateY(-2%);
-    background-color: #808c9f;
-}
-.game__start-btn:active {
-    transform: translateY(0);
-    background-color: #6e7888;
-}
-.game__start-btn-txt {
-    transform: rotate(270deg);
-    color: #222738;
-}
-.game__canvas {
-    width: 40rem;
-    height: 40rem;
-    margin: 0 3rem;
-}
-.game__scores {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    transform: translateY(16%);
-}
-.game__scores__paragraph {
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-}
-.game__scores__paragraph--vertical {
-    display: inline-block;
-    transform: rotate(270deg) translateY(-15%);
-}
-.game__scores__counter {
-    text-align: center;
-    vertical-align: bottom;
-    font-size: 5rem;
-}
-.game-logo {
-    margin-top: 4rem;
-    height: 3rem;
-    text-align: center;
-}
-.game-logo__title {
-    display: inline-block;
-    text-align: center;
-    font-size: 3rem;
-    vertical-align: middle;
-    
-}
-.game-logo__title--small {
-    font-size: 1.5rem;
-    line-height: 3rem;
-    vertical-align: middle;
-}
-

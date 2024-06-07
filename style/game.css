@@ -1,0 +1,80 @@
+/* Game Section */
+
+.game {
+    background-color: var(--mid-blue);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+.game__main {
+    display: flex;
+    align-items: center;
+    margin-top: 7rem; /* for a vertical alignment with game-logo */
+}
+.game__start-btn {
+    width: 4rem;
+    height: 15rem;
+    border-radius: 2rem;
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
+    display: grid;
+    place-content: center;
+    border: none;
+    background-color: var(--light-blue);
+    margin: 0 3rem;
+}
+.game__start-btn:hover {
+    transform: translateY(-2%);
+    background-color: var(--light-blue-hover);
+}
+.game__start-btn:active {
+    transform: translateY(0);
+    background-color: var(--light-blue);
+}
+.game__start-btn-txt {
+    transform: rotate(270deg);
+    color: var(--mid-blue);
+}
+.game__canvas {
+    width: 40rem;
+    height: 40rem;
+    margin: 0 3rem;
+}
+.game__scores {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(16%);
+}
+.game__scores__paragraph {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+.game__scores__paragraph--vertical {
+    display: inline-block;
+    transform: rotate(270deg) translateY(-15%);
+}
+.game__scores__counter {
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 5rem;
+}
+.game-logo {
+    margin-top: 4rem;
+    height: 3rem;
+    text-align: center;
+}
+.game-logo__title {
+    display: inline-block;
+    text-align: center;
+    font-size: 3rem;
+    vertical-align: middle;
+    
+}
+.game-logo__title--small {
+    font-size: 1.5rem;
+    line-height: 3rem;
+    vertical-align: middle;
+}
+
