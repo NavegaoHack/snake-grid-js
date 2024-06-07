@@ -65,7 +65,7 @@ function checkSnakeOverflow(headPos) {
 
 function checkSnakeCollission(pos) {
     gameOver = snake.some((body) => {
-        equalPositions(pos, body)
+        return equalPositions(pos, body)
     })
 }
 
@@ -87,12 +87,11 @@ function moveSnake(direction, grow = 0) {
 
     //checking collission
     checkSnakeCollission(newHeadPos)
-    if (!gameOver) {
-        //set the new snake head
-        snake.unshift(newHeadPos)
-        //delete the snake tail JUST in case that the snake haven't eaten
-        if (!handleEat(newHeadPos, food.at(0))) snake.pop()
-    }
+   
+    //set the new snake head
+    snake.unshift(newHeadPos)
+    //delete the snake tail JUST in case that the snake haven't eaten
+    if (!handleEat(newHeadPos, food.at(0))) snake.pop()
 }
 
 /**
@@ -223,12 +222,17 @@ function setKeyboarControls(event) {
 function setRestarting() {
     //setting the snake the original posiition and length
     snake = [{x: 15, y: 0}, {x:14, y:0}]
+    
     //setting the scores to 0
     scores = -1
-    //drawing the score again, dont worry, the function increment the score itself
+    
+    //set restart to false for playing again
+    gameOver = false
+    
+    //drawing the score again, dont worry,
+    //the function increment the score itself
     //hence will be draw as "00"
     drawScores()
-
 }
 
 function handleEat(headPos, foodPos) {
@@ -269,9 +273,11 @@ function main() {
     let tiles = createTilePath(maxTiles, canvas.width)
 
     setInterval(() => {
+        if (gameOver) return
         //coloring|cleaning the canvas
         drawBg()
         //moving the snake
+
         moveSnake(currentDirection)
         //drawing the food
         setFood(tiles)
