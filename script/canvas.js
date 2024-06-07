@@ -6,6 +6,7 @@ let context = canvas.getContext("2d")
 
 /**@type {Array[Object{number, number}]} array of Objets (x, y)*/
 let snake = [{x: 15, y: 0}, {x:14, y:0}]
+let food = [{x:15, y:15}]
 
 /**@type {number} number of tiles that will be drawed in each fps */
 let maxTiles = 16
@@ -13,9 +14,38 @@ let maxTiles = 16
 //current direction is a global string variable that contain "left" or "right" or "up" or "down"
 let currentDirection = "right"
 
+//game over when the snake collides with herself
+let gameOver = false
+
+//scores in the game turn, 999 will be the max value just for no mess the css layout
+let scoresElement = document.querySelector(".game__scores__counter")
+let scores = 0
+
+//restart button element
+let restartElement = document.querySelector(".game__start-btn")
+
+function drawScores() {
+    scoresElement.innerText = (++scores > 9) ? `${scores}` : `0${scores}`
+}
 
 function sumPositions(posA, posB) {
     return {x: posA.x + posB.x, y: posA.y + posB.y}
+}
+
+function equalPositions(posA, posB) {
+    return (posA.x == posB.x && posA.y == posB.y) ? true : false
+}
+
+function generateNewPositions() {
+    //random number between 0 to max tiles number
+    let rN = () => {return Math.floor(Math.random() * maxTiles)}
+
+    //creating two new positions
+    let newPositions = []
+    newPositions.push({x: rN(), y: rN()})
+    newPositions.push({x: rN(), y: rN()})
+
+    return newPositions
 }
 
 function checkSnakeOverflow(headPos) {
@@ -31,6 +61,12 @@ function checkSnakeOverflow(headPos) {
 
     //obvious xd
     return headPos
+}
+
+function checkSnakeCollission(pos) {
+    gameOver = snake.some((body) => {
+        equalPositions(pos, body)
+    })
 }
 
 function moveSnake(direction, grow = 0) {
@@ -49,10 +85,14 @@ function moveSnake(direction, grow = 0) {
     //check if newHeadPos overflow canvas borders
     newHeadPos = checkSnakeOverflow(newHeadPos)
 
-    //set the new snake head
-    snake.unshift(newHeadPos)
-    //delete the snake tail
-    snake.pop() 
+    //checking collission
+    checkSnakeCollission(newHeadPos)
+    if (!gameOver) {
+        //set the new snake head
+        snake.unshift(newHeadPos)
+        //delete the snake tail JUST in case that the snake haven't eaten
+        if (!handleEat(newHeadPos, food.at(0))) snake.pop()
+    }
 }
 
 /**
@@ -150,8 +190,15 @@ function setSnake(tiles) {
         drawPoint("white", position, tiles.size)
         
     })
+}
 
-
+function setFood(tiles) {
+    let foodPos = food.at(0)
+    let position = {
+    x: tiles.sequence[foodPos.x] - tiles.size,
+    y: tiles.sequence[foodPos.y] - tiles.size 
+    }
+    drawPoint("red", position, tiles.size)
 }
 
 function setKeyboarControls(event) {
@@ -173,6 +220,40 @@ function setKeyboarControls(event) {
     currentDirection = directionUtility[event.key] ?? currentDirection
 }
 
+function setRestarting() {
+    //setting the snake the original posiition and length
+    snake = [{x: 15, y: 0}, {x:14, y:0}]
+    //setting the scores to 0
+    scores = -1
+    //drawing the score again, dont worry, the function increment the score itself
+    //hence will be draw as "00"
+    drawScores()
+
+}
+
+function handleEat(headPos, foodPos) {
+
+    if (equalPositions(headPos, foodPos)) {
+        //drawing the upgrade of score
+        drawScores()
+        //deleting the food already eaten
+        food.pop()
+
+        //create the new food position
+        let newFoodPos = generateNewPositions() // 2 new positions for food
+
+        //just in case that the the new position 
+        //matches with the head posiition again
+        //lets use the second position
+        equalPositions(newFoodPos.at(0), headPos) ?
+            food.push(newFoodPos.at(1)) :
+            food.push(newFoodPos.at(0))
+        
+        return true
+    }
+    return false
+}
+
 
 /**
  * @function
@@ -192,6 +273,8 @@ function main() {
         drawBg()
         //moving the snake
         moveSnake(currentDirection)
+        //drawing the food
+        setFood(tiles)
         //drawing the snake
         setSnake(tiles)
         //drawing the "tiles" after that background and snake was drawed
@@ -200,6 +283,7 @@ function main() {
 
     //set keyboard listener
     document.addEventListener("keydown", setKeyboarControls)
+    restartElement.addEventListener("click", setRestarting)
 
     
     return true
@@ -208,5 +292,5 @@ function main() {
 //setting the canvas size first
 setCanvasSize(40)
 
-main() ? console.log("OK") : console.log("tu ordenador es muy VIEJO mardito loco");
+main() ? console.log("OK") : console.log("tu navegador es muy VIEJO mardito loco");
 
