@@ -34,24 +34,19 @@
     display: grid;
     place-content: center;
 }
+.index__buttons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
 
-.index__buttons__play {
+.index__buttons__to {
     border: none;
     width: 15rem;
     height: 4rem;
-    border-radius: 1.5rem;
     background-color: var(--light-blue);
-    transition: transform 0.2s ease;
 }
-.index__buttons__play:hover {
-   background-color: var(--light-blue-hover);
-   transform: translateY(-10%);
-}
-.index__buttons__play:active {
-   background-color: var(--light-blue);
-   transform: translateY(0);
-}
-.index__buttons__play--text {
+.index__buttons__to--text {
     color: var(--mid-blue);
     font-size: 3rem;
 }

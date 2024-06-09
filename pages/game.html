@@ -4,27 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link href="../assets/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="../assets/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="../assets/fontawesome/css/solid.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="../style/normalize.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/game.css">
 </head>
 <body>
     <div class="game">
-        <section class="game__main">
-            <button class="game__start-btn">
-                <p class="game__start-btn-txt">restart</p>
-            </button>
-            <canvas class="game__canvas"></canvas>
-            <div class="game__scores">
-                <p class="game__scores__paragraph">
-                    <span class="game__scores__paragraph--vertical">scores</span>
-                </p>
-                <p class="game__scores__counter">00</p>
+        <div class="game__back-to">
+            <a href="/">
+                <span class="--back-button --button">
+                    <i class="fa-regular fa-circle-left --icon --icon-dark"></i>
+                </span>
+            </a>
+            <h1 class="game__title">game</h1>
+        </div>
+        <div class="game__container">
+            <section class="game__main">
+                <button class="game__start-btn">
+                    <p class="game__start-btn-txt">restart</p>
+                </button>
+                <canvas class="game__canvas"></canvas>
+                <div class="game__scores">
+                    <p class="game__scores__paragraph">
+                        <span class="game__scores__paragraph--vertical">scores</span>
+                    </p>
+                    <p class="game__scores__counter">00</p>
+                </div>
+            </section>
+            <div class="game-logo">
+                <h2 class="game-logo__title">snake grid | </h2>
+                <span class="game-logo__title--small">navegaohack</span>
             </div>
-        </section>
-        <div class="game-logo">
-            <h2 class="game-logo__title">snake grid | </h2>
-            <span class="game-logo__title--small">navegaohack</span>
         </div>
     </div>
     <script src="../script/canvas.js"></script>

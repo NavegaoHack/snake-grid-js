@@ -36,6 +36,8 @@ p,h1,h2,h3,h4,span{
     background-color: var(--light-blue);
     border: none;
     border-radius: 1rem;
+    user-select: none;
+    display: inline-block;
 }
 .--button:hover {
     background-color: var(--light-blue-hover);
@@ -54,6 +56,15 @@ p,h1,h2,h3,h4,span{
     content: " ";
 }
 
+.--icon-dark {
+    background-color: var(--mid-blue);
+}
+
 .--icon {
     font-size: 2rem;
+}
+
+.--back-button {
+  width: 2rem;
+  height: 2rem;
 }

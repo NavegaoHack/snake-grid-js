@@ -3,8 +3,12 @@
 .users {
   width: 100vw;
   height: 100vh;
-  background-color: var(--dark-blue);
+  background-color: var(--mid-blue);
   padding: 2rem;
+}
+.users__title {
+  display: inline-block;
+  margin-left: 1rem;
 }
 
 .users__container {
@@ -28,13 +32,12 @@
   height: 4rem;
   background-color: var(--light-blue);
   text-align: center;
-  border-radius: 1rem;
 }
 .user__list__client:hover {
   background-color: var(--light-blue-hover);
 }
 .user__list__clientname {
-  color: var(--dark-blue);
+  color: var(--mid-blue);
   line-height: 4rem;
 }
 .user__stats {
@@ -66,6 +69,6 @@
 }
 .user__stats__edit,
 .user__stats__delete {
-  color: var(--dark-blue); 
+  color: var(--mid-blue); 
 }
 

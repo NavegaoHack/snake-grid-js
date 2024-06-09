@@ -1,9 +1,23 @@
 /* Game Section */
 
-.game {
+.game{
     background-color: var(--mid-blue);
     width: 100vw;
     height: 100vh;
+    padding: 2rem;
+}
+.game__back-to {
+    width: 100%;
+    height: 2rem;
+}
+
+.game__title {
+  display: inline-block;
+  margin-left: 1rem;
+}
+.game__container {
+    width: 100%;
+    height: calc(100% - 2rem);
     display: grid;
     place-content: center;
 }
