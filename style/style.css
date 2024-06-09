@@ -28,3 +28,16 @@ p,h1,h2,h3,h4,span{
 
     color: var(--light-blue);
 }
+
+/* global modifiers */
+.--button {
+    width: 8rem;
+    height: 4rem;
+    background-color: var(--light-blue);
+    border: none;
+    border-radius: 1rem;
+
+}
+.--arroba {
+    font-size: 4rem
+}
