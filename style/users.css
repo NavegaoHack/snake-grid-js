@@ -19,7 +19,7 @@
 .users__list {
   padding: 2rem;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   gap: 2rem;
   border-right: 2px solid var(--light-blue);
 }

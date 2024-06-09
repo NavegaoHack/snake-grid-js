@@ -36,8 +36,24 @@ p,h1,h2,h3,h4,span{
     background-color: var(--light-blue);
     border: none;
     border-radius: 1rem;
-
 }
+.--button:hover {
+    background-color: var(--light-blue-hover);
+    transform: translateY(-5%);
+}
+.--button:active {
+    background-color: var(--light-blue);
+    transform: translateY(0);
+}
+
 .--arroba {
     font-size: 4rem
+}
+.--arroba::before,
+.--arroba::after {
+    content: " ";
+}
+
+.--icon {
+    font-size: 2rem;
 }
