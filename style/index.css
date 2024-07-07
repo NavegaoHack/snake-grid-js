@@ -7,7 +7,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: opacity .5s ease-in-out;
 }
+
 .index__logo {
     text-align: center;
     position: relative;
@@ -49,4 +51,129 @@
 .index__buttons__to--text {
     color: var(--mid-blue);
     font-size: 3rem;
+}
+
+/* Settings section */
+
+.settings {
+    position: absolute;
+    z-index: 40;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 30rem;
+    background-color: var(--dark-blue);
+    padding: 2rem;
+    transition: left .5s ease-in-out;
+}
+
+.--hide-settings {
+    left: -30rem;
+}
+
+.settings-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.settings-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.settings-input__label, .login-input__label {
+    display: inline-block;
+    font-size: 1.5rem;
+}
+.settings-input__field, .login-input__field {
+    background-color: var(--dark-blue);
+    border: none;
+    font-size: 1.8rem;
+    color: var(--light-blue);
+    width: 4rem;
+    outline: none;
+}
+
+.settings-input__checkbox {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--dark-blue);
+    outline: none;
+    border: .2rem solid var(--light-blue);
+}
+
+.settings-input__select {
+    background-color: var(--mid-blue);
+    border: .2rem solid var(--light-blue);
+    width: 8rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.settings-input__checkbox:checked {
+    background-color: var(--light-blue);
+    /*clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);*/
+}
+
+.popup-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70rem;
+    height: 35rem;
+    /* From https://css.glass */
+    background: rgba(24, 24, 37, 0.37);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(24, 24, 37, 0.3);
+
+    padding: 2rem;
+}
+
+.popup-login__head {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+}
+.popup-login__alert-msg {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    height: 3rem;
+    color: red;
+}
+.popup-login__buttons {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login-input__label {
+    font-size: 2rem;
+}
+
+.login-input__field {
+    width: 20rem;
+    font-size: 2.5rem;
+    background-color: #00000000;
+    text-align: end;
+}
+
+.login-input {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    width: 40rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

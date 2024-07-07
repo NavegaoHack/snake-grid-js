@@ -10,6 +10,83 @@
 
 </head>
 <body>
+
+    <!-- SETTINGS -->
+    <div class="settings --hide-settings">
+        <div class="settings-head">
+            <h2>settings</h2>
+            <span class="--back-button --button">
+                <i class="fa-regular fa-circle-left --icon --icon-dark"></i>
+            </span>
+        </div>
+
+        <form action="">
+            <div class="settings-input">
+                <label for="snakeSpeed"><p class="settings-input__label">snake speed</p></label>
+                <input type="number" name="" id="snakeSpeed" class="settings-input__field" min="0" value="1">
+            </div>
+            <div class="settings-input">
+                <label for="numberFood"><p class="settings-input__label">food number</p></label>
+                <input type="number" name="" id="numberFood" class="settings-input__field" min="0" value="1">
+            </div>
+            <div class="settings-input">
+                <label for="colorTheme"><p class="settings-input__label">color theme</p></label>
+                <select name="color-theme" id="colorTheme" class="settings-input__select">
+                    <option value ="default">default</option>
+                    <option value ="purrari">purrari</option>
+                    <option value ="dracula">dracula</option>
+                    <option value ="gruvbox">gruvbox</option>
+                </select> 
+            </div>
+            <div class="settings-input">
+                <label for="askLogin"><p class="settings-input__label">ask for login</p></label>
+                <input type="checkbox" name="" id="askLogin" class="settings-input__checkbox">
+            </div>
+            <div class="settings-input">
+                <label for="twoPlayers"><p class="settings-input__label">two players</p></label>
+                <input type="checkbox" name="" id="twoPlayers" class="settings-input__checkbox">
+            </div>
+            <div class="settings-input">
+                <label for="AIPlay"><p class="settings-input__label">play with ai</p></label>
+                <input type="checkbox" name="" id="AIPlay" class="settings-input__checkbox">
+            </div>
+        </form>
+    </div>
+
+    <div class="popup-login">
+        <h3 class="popup-login__head">login</h3>
+        <p class="popup-login__alert-msg">fields not filled!</p>
+        <form action="#">
+            <div class="login-input">
+                <label for="loginUsername"><p class="login-input__label">username:</p></label>
+                <input type="text" name="username" id="loginUsername" placeholder="name here" class="login-input__field">
+            </div>
+            <div class="login-input">
+                <label for="loginUserpassw"><p class="login-input__label">password:</p></label>
+                <input type="password" name="password" id="loginUserpassw" placeholder="password here" class="login-input__field">
+            </div>
+        </form>
+        <div class="popup-login__buttons">
+            <a href="#">
+                <button class="index__buttons__to --button">
+                    <p class="index__buttons__to--text">back</p>
+                </button>
+            </a>
+            <a href="pages/game.html">
+                <button class="index__buttons__to --button play-btn">
+                    <p class="index__buttons__to--text">continue</p>
+                </button>
+            </a>
+            <a href="#">
+                <button class="index__buttons__to --button login-btn">
+                    <p class="index__buttons__to--text">login</p>
+                </button>
+            </a>
+        </div>
+    </div>
+    
+    
+    <!-- INDEX -->
     <div class="index">
         <div class="index__logo">
             <h1 class="index__logo__title--blurred">snake grid</h1>
@@ -21,17 +98,24 @@
             </div>
         </div>
         <div class="index__buttons">
-            <a href="pages/users.html">
-                <button class="index__buttons__to --button">
-                    <p class="index__buttons__to--text">users</p>
+            <a href="#">
+                <button class="index__buttons__to --button settings-btn">
+                    <p class="index__buttons__to--text">settings</p>
                 </button>
             </a>
             <a href="pages/game.html">
-                <button class="index__buttons__to --button">
+                <button class="index__buttons__to --button play-btn">
                     <p class="index__buttons__to--text">play</p>
+                </button>
+            </a>
+            <a href="pages/users.html">
+                <button class="index__buttons__to --button users-btn">
+                    <p class="index__buttons__to--text">users</p>
                 </button>
             </a>
         </div>
     </div>
+
+    <script type="module" src="script/app.js"></script>
 </body>
 </html>
