@@ -40,22 +40,22 @@
             </div>
             <div class="settings-input">
                 <label for="askLogin"><p class="settings-input__label">ask for login</p></label>
-                <input type="checkbox" name="" id="askLogin" class="settings-input__checkbox">
+                <input type="checkbox" name="" id="askLogin" class="settings-input__checkbox" checked>
             </div>
-            <div class="settings-input">
+            <div class="settings-input settings-input-disabled">
                 <label for="twoPlayers"><p class="settings-input__label">two players</p></label>
-                <input type="checkbox" name="" id="twoPlayers" class="settings-input__checkbox">
+                <input type="checkbox" name="" id="twoPlayers" class="settings-input__checkbox" disabled>
             </div>
-            <div class="settings-input">
+            <div class="settings-input settings-input-disabled">
                 <label for="AIPlay"><p class="settings-input__label">play with ai</p></label>
-                <input type="checkbox" name="" id="AIPlay" class="settings-input__checkbox">
+                <input type="checkbox" name="" id="AIPlay" class="settings-input__checkbox" disabled>
             </div>
         </form>
     </div>
 
     <div class="popup-login">
         <h3 class="popup-login__head">login</h3>
-        <p class="popup-login__alert-msg">fields not filled!</p>
+        <p class="popup-login__alert-msg"></p>
         <form action="#">
             <div class="login-input">
                 <label for="loginUsername"><p class="login-input__label">username:</p></label>
@@ -67,21 +67,15 @@
             </div>
         </form>
         <div class="popup-login__buttons">
-            <a href="#">
-                <button class="index__buttons__to --button">
-                    <p class="index__buttons__to--text">back</p>
-                </button>
-            </a>
-            <a href="pages/game.html">
-                <button class="index__buttons__to --button play-btn">
-                    <p class="index__buttons__to--text">continue</p>
-                </button>
-            </a>
-            <a href="#">
-                <button class="index__buttons__to --button login-btn">
-                    <p class="index__buttons__to--text">login</p>
-                </button>
-            </a>
+            <button class="index__buttons__to --button popup-back-btn">
+                <p class="index__buttons__to--text">back</p>
+            </button>
+            <button class="index__buttons__to --button popup-play-btn">
+                <p class="index__buttons__to--text">continue</p>
+            </button>
+            <button class="index__buttons__to --button popup-login-btn">
+                <p class="index__buttons__to--text">login</p>
+            </button>
         </div>
     </div>
     
@@ -98,21 +92,15 @@
             </div>
         </div>
         <div class="index__buttons">
-            <a href="#">
-                <button class="index__buttons__to --button settings-btn">
-                    <p class="index__buttons__to--text">settings</p>
-                </button>
-            </a>
-            <a href="pages/game.html">
-                <button class="index__buttons__to --button play-btn">
-                    <p class="index__buttons__to--text">play</p>
-                </button>
-            </a>
-            <a href="pages/users.html">
-                <button class="index__buttons__to --button users-btn">
-                    <p class="index__buttons__to--text">users</p>
-                </button>
-            </a>
+            <button class="index__buttons__to --button settings-btn">
+                <p class="index__buttons__to--text">settings</p>
+            </button>
+            <button class="index__buttons__to --button play-btn">
+                <p class="index__buttons__to--text">play</p>
+            </button>
+            <button class="index__buttons__to --button users-btn">
+                <p class="index__buttons__to--text">users</p>
+            </button>
         </div>
     </div>
 

@@ -10,11 +10,11 @@ const toggleShowSettings = () => {
     settings.isShowed = !settings.isShowed
 }
 
-const hideSettings = () => {
-    settings.hide()
-    index.toggleOpacity()
+
+const loginUser = (credentials) => {
+    console.log(credentials)
+    if (credentials.user == "" && credentials.password == "") return {}
+    return false
 }
 
-
-
-export { clickListener, toggleShowSettings, hideSettings}
+export { clickListener, toggleShowSettings, loginUser }

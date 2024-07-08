@@ -1,5 +1,5 @@
-import { settings, index } from "./dom.js"
-import {clickListener, toggleShowSettings } from "./functions.js";
+import { settings, index, loginPopup } from "./dom.js"
+import {clickListener, toggleShowSettings, loginUser } from "./functions.js";
 
 
 
@@ -14,3 +14,27 @@ clickListener(settings.askLogin, () => {console.log(settings.askLogin.checked)})
 clickListener(settings.playWithAI, () => {console.log(settings.askLogin.checked)})
 clickListener(settings.twoPlayers, () => {console.log(settings.twoPlayers.checked)})
 clickListener(settings.colorTheme, () => {console.log(settings.colorTheme.value)})
+
+// Login popup Controls
+clickListener(loginPopup.back, () => {loginPopup.showPopupLogin()})
+clickListener(loginPopup.continue, () => {location.href = "/pages/game.html"})
+clickListener(loginPopup.login, () => {
+    const credentials = loginPopup.getCredentials()
+
+
+    loginPopup.cleanFields()
+    
+    const account = loginUser(credentials)
+    console.log(account)
+
+    if (!account) loginPopup.alertMessage("an error occurs!")
+    else loginPopup.alertMessage()
+})
+
+
+// Index buttons
+clickListener(index.play, () => {
+    settings.askLogin.checked ?
+        loginPopup.showPopupLogin() :
+        location.href = "/pages/game.html"
+})

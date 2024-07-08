@@ -25,7 +25,7 @@ body {
     background-color: var(--mid-blue);
 }
 
-p,h1,h2,h3,h4,span, input, select{
+p,h1,h2,h3,h4,span, input, input:autofill, select{
     margin: 0;
     padding: 0;
     font-family: 'Tiny5';
