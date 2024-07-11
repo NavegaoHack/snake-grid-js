@@ -11,6 +11,49 @@
     <link rel="stylesheet" href="../style/game.css">
 </head>
 <body>
+
+    <!-- SETTINGS -->
+    <div class="settings --hide-settings">
+        <div class="settings-head">
+            <h2>settings</h2>
+            <span class="--back-button --button">
+                <i class="fa-regular fa-circle-left --icon --icon-dark"></i>
+            </span>
+        </div>
+
+        <form action="">
+            <div class="settings-input">
+                <label for="snakeSpeed"><p class="settings-input__label">snake speed</p></label>
+                <input type="number" name="" id="snakeSpeed" class="settings-input__field" min="1" value="5">
+            </div>
+            <div class="settings-input">
+                <label for="numberFood"><p class="settings-input__label">food number</p></label>
+                <input type="number" name="" id="numberFood" class="settings-input__field" min="1" value="1">
+            </div>
+            <div class="settings-input">
+                <label for="colorTheme"><p class="settings-input__label">color theme</p></label>
+                <select name="color-theme" id="colorTheme" class="settings-input__select">
+                    <option value ="default">default</option>
+                    <option value ="purrari">purrari</option>
+                    <option value ="dracula">dracula</option>
+                    <option value ="gruvbox">gruvbox</option>
+                </select> 
+            </div>
+            <div class="settings-input">
+                <label for="askLogin"><p class="settings-input__label">ask for login</p></label>
+                <input type="checkbox" name="" id="askLogin" class="settings-input__checkbox" checked>
+            </div>
+            <div class="settings-input settings-input-disabled">
+                <label for="twoPlayers"><p class="settings-input__label">two players</p></label>
+                <input type="checkbox" name="" id="twoPlayers" class="settings-input__checkbox" disabled>
+            </div>
+            <div class="settings-input settings-input-disabled">
+                <label for="AIPlay"><p class="settings-input__label">play with ai</p></label>
+                <input type="checkbox" name="" id="AIPlay" class="settings-input__checkbox" disabled>
+            </div>
+        </form>
+    </div>
+
     <div class="game">
         <div class="game__back-to">
             <a href="/">
@@ -38,7 +81,8 @@
                 <span class="game-logo__title--small">navegaohack</span>
             </div>
         </div>
+        <div class="game__settings --button"></div>
     </div>
-    <script src="../script/canvas.js"></script>
+    <script type="module" src="../script/game.js"></script>
 </body>
 </html>
