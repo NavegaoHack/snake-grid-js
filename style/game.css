@@ -12,6 +12,8 @@
 .game__back-to {
     width: 100%;
     height: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 .game__title {
