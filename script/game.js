@@ -28,7 +28,6 @@ if (sessionStorage.length > 1) {
 
 const main = () => {
    
-    console.log(game.notGameOver)
     if (game.notGameOver) {
         game.drawBackground()
         game.notGameOver = snake.moveSnake(snake.direction)
