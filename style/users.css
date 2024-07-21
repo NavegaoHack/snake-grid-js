@@ -1,10 +1,17 @@
 /* users section */
 
+
 .users {
   height: 100vh;
   background-color: var(--mid-blue);
   padding: 2rem;
 }
+
+.users__back-to {
+  display: flex;
+  align-items: center;
+}
+
 .users__title {
   display: inline-block;
   margin-left: 1rem;
@@ -67,13 +74,17 @@
 }
 
 .user__stats__options p {
-  color: var(--dark-blue);
+  color: var(--mid-blue);
   font-size: 2rem;
 }
 .user__stats__edit,
 .user__stats__delete {
   color: var(--mid-blue);
-  width: 10rem
+  width: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
 .edit-input__field {

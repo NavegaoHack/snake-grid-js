@@ -10,6 +10,7 @@ game.setTileSizes()
 
 //setting tiles in the snake object
 snake.borderTile = game.tiles
+snake.direction = "right"
 
 let playerLogged = false
 

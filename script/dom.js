@@ -174,7 +174,7 @@ class Game {
         this.settings = $(".game__settings")
         this.restart = $(".game__start-btn")
         this.scores = $(".game__scores__counter")
-        this.canvasSize = 40
+        this.canvasSize = null 
         this.canvas = $(".game__canvas")
         this.context = null
         this.tiles = 16
@@ -188,7 +188,8 @@ class Game {
         this.context = this.canvas.getContext("2d")
     }
 
-    setCanvasSize() {
+    setCanvasSize(size = 40) {
+        this.canvasSize = size
         this.canvas.style.width = this.canvas.style.height = this.canvasSize + "rem"
         this.canvas.width = this.canvas.height = this.canvasSize * 10
     }

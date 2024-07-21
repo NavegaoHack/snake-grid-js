@@ -10,6 +10,8 @@
     --mid-blue: #222738;
     --light-blue: #6e7888;
     --light-blue-hover: #808c9f;
+
+    --svg-mid-blue: invert(11%) sepia(8%) saturate(3005%) hue-rotate(189deg) brightness(97%) contrast(88%);
 }
 
 :root .purrari {
@@ -17,6 +19,8 @@
     --mid-blue: #513bfb;
     --light-blue: #24f97d;
     --light-blue-hover: #78f5ac;
+
+    --svg-mid-blue: invert(24%) sepia(71%) saturate(6369%) hue-rotate(246deg) brightness(98%) contrast(101%);
 }
 
 :root .dracula {
@@ -24,6 +28,8 @@
     --mid-blue: #3f3751;
     --light-blue: #4db666;
     --light-blue-hover: #6dcc81;
+
+    --svg-mid-blue: invert(22%) sepia(8%) saturate(1792%) hue-rotate(217deg) brightness(95%) contrast(94%);
 }
 
 :root .gruvbox {
@@ -31,6 +37,8 @@
     --mid-blue: #3c3836;
     --light-blue: #d79921;
     --light-blue-hover: #458588;
+
+    --svg-mid-blue: invert(21%) sepia(16%) saturate(177%) hue-rotate(335deg) brightness(94%) contrast(95%);
 }
 
 /* Global */
@@ -74,6 +82,7 @@ p,h1,h2,h3,h4,span, input, input:autofill, select{
     transform: translateY(0);
 }
 
+
 .--arroba {
     font-size: 4rem
 }
@@ -87,7 +96,18 @@ p,h1,h2,h3,h4,span, input, input:autofill, select{
 }
 
 .--icon {
-    font-size: 2rem;
+    margin: 10%;
+    height: 80%;
+    filter: var(--svg-mid-blue);
+    transition: transform 0.5s ease-in-out;
+}
+
+.--icon-trash {
+    height: 60%;
+}
+
+.--icon.--gear:hover {
+    transform: rotate(52deg);
 }
 
 .--back-button {

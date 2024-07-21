@@ -57,18 +57,18 @@ const checkSnakeOverflow = (headPos, tiles) => {
     return headPos
 }
 
+const autoCrash = (dir) => {
+    const oppositeDirection = {}
+
+    oppositeDirection["left"] = "right";
+    oppositeDirection["up"] = "down";
+    oppositeDirection["down"] = "up";
+    oppositeDirection["right"] = "left";
+
+    if (oppositeDirection[dir] == snake.direction) return true
+}
 
 const keyboarControls = (event) => {
-    const autoCrash = (dir) => {
-        const oppositeDirection = {}
-
-        oppositeDirection["left"] = "right";
-        oppositeDirection["up"] = "down";
-        oppositeDirection["down"] = "up";
-        oppositeDirection["right"] = "left";
-
-        if (oppositeDirection[dir] == snake.direction) return true
-    }
 
     // Object utility for an easier handle of the direction with keyboard inputs
     const direction = {}
@@ -90,6 +90,22 @@ const keyboarControls = (event) => {
     snake.direction = direction[event.key] ?? snake.direction
 }
 
+const randomTiles = (lenTiles) => {
+    return Math.floor(Math.random() * lenTiles)
+}
+
+const randomDirection = (n) => {
+    const pos = {
+        0: "left",
+        1: "up",
+        2: "right",
+        3: "down"
+    }
+
+    if (autoCrash(pos[n])) return snake.direction
+
+    return pos[n]
+}
 
 
 
@@ -101,5 +117,7 @@ export {
     loginUser,
     sumPositions,
     equalPositions,
-    generateNewFoodPos
+    generateNewFoodPos,
+    randomTiles,
+    randomDirection
 }
