@@ -3,6 +3,16 @@ import { sumPositions, equalPositions, generateNewFoodPos } from "./functions.js
 
 const $ = (element) => document.querySelector(element);
 
+const getBodyClass = () => {
+    return $("body").className
+}
+
+const getColorVar = (colorvar) => {
+    return getComputedStyle($(`:root .${getBodyClass()}`))
+                                        .getPropertyValue(colorvar);
+}
+
+const bodyLayout = $("body")
 
 //create settings section
 class Settings {
@@ -15,10 +25,52 @@ class Settings {
         this.playWithAI = $("#AIPlay");
         this.twoPlayers = $("#twoPlayers");
         this.colorTheme = $("#colorTheme");
+
+        this.username = $(".userstat-username");
+        this.userscore = $(".userstat-scores span");
+        this.usertimeplayed = $(".userstat-timeplayed span");
     }
 
     toggleShow() {
         this.dom.classList.toggle("--hide-settings")
+    }
+
+    altSetSettings() {
+        let saved = localStorage.getItem("saveSettings")
+        if (!saved) {
+            //  [snakeSpeed, food, askLogin, colorTheme]
+            saved = [5, 1, false, "default"]
+        } else
+            saved = JSON.parse(saved)
+
+        bodyLayout.className = saved.at(3)
+    }
+
+    setSettings() {
+        let saved = localStorage.getItem("saveSettings")
+        if (!saved) {
+            //  [snakeSpeed, food, askLogin, colorTheme]
+            saved = [5, 1, false, "default"]
+        } else
+            saved = JSON.parse(saved)
+
+        this.snakeSpeed.value = saved.at(0)
+        this.foods.value = saved.at(1)
+        this.askLogin.checked = saved.at(2)
+        this.colorTheme.value = saved.at(3)
+        
+        bodyLayout.className = saved.at(3)
+    }
+
+    saveSettings() {
+        let saved = [1, 1, false, "default"]
+        saved[0] = +this.snakeSpeed.value
+        saved[1] = +this.foods.value
+        saved[2] = this.askLogin.checked
+        saved[3] = this.colorTheme.value
+        bodyLayout.className = this.colorTheme.value
+        localStorage.setItem("saveSettings", JSON.stringify(saved))
+
     }
 }
 
@@ -56,6 +108,37 @@ class LoginPopup {
 
     getCredentials() {
         return {user: this.username.value, password: this.password.value}
+    }
+
+    logUser(credentials) {
+        let user =  localStorage.getItem(credentials.user)
+        if (user == null) {
+            user = [credentials.password, credentials.user, 0, 0]
+
+            let userList
+            if (!localStorage.getItem("userList")) userList = []
+            else userList = localStorage.getItem("userList").split(",")
+            
+            console.log(userList)
+
+            userList.push(credentials.user) 
+
+            localStorage.setItem("userList", userList)
+
+            localStorage.setItem(credentials.user, user)
+            sessionStorage.clear()
+            sessionStorage.setItem("currentUser", user)     
+            return {state: true, msg: "A new user has been created"}
+        }
+        user = user.split(",")
+        if (user.at(0) == credentials.password) {
+            sessionStorage.clear()
+            sessionStorage.setItem("currentUser", user)     
+            
+            return {state: true, msg: "User validated"}
+        }
+        else return {state: false, msg: "Incorrect Password"}
+
     }
 
     alertMessage(message = false) {
@@ -123,12 +206,13 @@ class Game {
     }
 
     drawBackground() {
-        this.context.fillStyle = "#181825"
+
+        this.context.fillStyle = getColorVar('--dark-blue');
         this.context.fillRect(0, 0, this.canvasSize * 10, this.canvasSize * 10)
     }
 
     drawLines() {
-        this.context.strokeStyle = "#222738"
+        this.context.strokeStyle = getColorVar('--mid-blue');
         this.context.lineWidth = 1
 
         for (let i = 1; i < this.tiles; i++) {
@@ -253,9 +337,83 @@ class Snake {
         this.direction = "right"
     }
 }
-/*
-*/
+
 const snake = new Snake()
 
+class Users {
+    constructor () {
+        this.list = $(".users__list")
+        this.stats = $(".user__stats")
+        this.name = $(".user__stats__name span")
+        this.email = $(".user__stats__email span")
+        this.scores = $(".user__stats__scores span")
+        this.time = $(".user__stats__time span")
+        this.edit = $(".user__stats__edit")
+        this.remove = $(".user__stats__delete")
+    }
 
-export { settings, index, loginPopup, game, snake}
+    printList() {
+        const userBtnModel = (name) => {
+            let btn = document.createElement("article")
+            let text = document.createElement("h2")
+            
+            btn.className = "user__list__client --button"
+            text.className = "user__list__clientname"
+
+            text.dataset.name = name
+            text.innerText = name
+            btn.appendChild(text)
+
+            return btn
+        }
+
+        let usersList = localStorage.getItem("userList")
+        if (!usersList) return 
+        usersList = usersList.split(",")
+        usersList.forEach(user => {
+            this.list.appendChild(userBtnModel(user))
+        })
+    }
+
+    showUserStats(user) {
+        this.name.innerText = user[1]
+        this.email.innerText = user[1]
+        this.scores.innerText = user[2]
+        this.time.innerText = user[3]
+    }
+
+    resetUserStats() {
+        this.name.innerText = "---"
+        this.email.innerText = "---"
+        this.scores.innerText = "---" 
+        this.time.innerText = "---" 
+    }
+
+    resetList() {
+        this.list.innerHTML = ""
+    }
+
+    removeUser(name) {
+        let usersList = localStorage.getItem("userList").split(",")
+        usersList.splice(usersList.indexOf(name), 1)
+        usersList.length ?
+            localStorage.setItem("userList", usersList) :
+            localStorage.removeItem("userList")
+
+        localStorage.removeItem(name.toLowerCase())
+        console.log("item removed")
+        this.resetList()
+        this.printList()
+        this.resetUserStats()
+    }
+
+    editUser(name) {
+        this.resetUserStats()
+    }
+
+}
+
+const users = new Users()
+
+
+export { settings, index, loginPopup, game, snake, users, bodyLayout}

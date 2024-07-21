@@ -107,3 +107,28 @@
     background-color: var(--light-blue);
 }
 
+.settings-userstats {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 28rem;
+    z-index: 45;
+}
+
+.userstat-username {
+    font-size: 2.5rem;
+    margin: 2rem 0;
+}
+
+.userstat-scores, .userstat-timeplayed {
+    font-size: 1.8rem;
+    display: flex;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    width: 26rem;
+    justify-content: space-between;
+}
+
+.userstat-scores span, .userstat-timeplayed span {
+    font-size: 1.8rem;
+}

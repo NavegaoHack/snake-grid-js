@@ -5,11 +5,32 @@
 }
 
 /* Common constants */
-:root {
+:root .default {
     --dark-blue: #181825;
     --mid-blue: #222738;
     --light-blue: #6e7888;
     --light-blue-hover: #808c9f;
+}
+
+:root .purrari {
+    --dark-blue: #4079bd;
+    --mid-blue: #513bfb;
+    --light-blue: #24f97d;
+    --light-blue-hover: #78f5ac;
+}
+
+:root .dracula {
+    --dark-blue: #3c2443;
+    --mid-blue: #3f3751;
+    --light-blue: #4db666;
+    --light-blue-hover: #6dcc81;
+}
+
+:root .gruvbox {
+    --dark-blue: #7f1a16;
+    --mid-blue: #3c3836;
+    --light-blue: #d79921;
+    --light-blue-hover: #458588;
 }
 
 /* Global */

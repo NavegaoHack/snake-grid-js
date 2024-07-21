@@ -1,7 +1,9 @@
 import { clickListener, keyListener, keyboarControls } from "./functions.js";
 import { game, settings, snake } from "./dom.js";
 
-game.setFps(5)
+settings.setSettings()
+snake.scoresSum = +settings.snakeSpeed.value
+game.setFps(settings.snakeSpeed.value)
 game.setCanvasContext()
 game.setCanvasSize()
 game.setTileSizes()
@@ -9,6 +11,19 @@ game.setTileSizes()
 //setting tiles in the snake object
 snake.borderTile = game.tiles
 
+let playerLogged = false
+
+if (sessionStorage.length > 1) {
+    let session = sessionStorage.currentUser.split(",")
+    settings.username.innerText = session[1]
+    settings.userscore.innerText = session[2]
+    settings.usertimeplayed.innerText = session[3]
+    playerLogged = true
+} else {
+    settings.username.innerText = ""
+    settings.userscore.parentNode.innerText = ""
+    settings.usertimeplayed.parentNode.innerText = ""
+}
 
 const main = () => {
    
@@ -17,6 +32,7 @@ const main = () => {
         game.drawBackground()
         game.notGameOver = snake.moveSnake(snake.direction)
 
+        
         game.drawScore(snake.scores)
 
         //drawing snake
@@ -48,6 +64,7 @@ clickListener(game.settings, () => {
 clickListener(settings.closeButton, () => {
     settings.toggleShow()
     game.toggleOpacity()
+    settings.saveSettings()
 })
 
 // Reset game loop when snake speed is changed after reset fps
@@ -63,6 +80,15 @@ clickListener(settings.foods, () => {snake.foodNumber = settings.foods.value})
 
 clickListener(game.restart, () => {
     if (game.notGameOver) return
+
+    if (playerLogged && snake.scores > +settings.userscore.innerText) {
+        let session = sessionStorage.getItem('currentUser').split(",")
+        session[2] = snake.scores
+        sessionStorage.setItem('currentUser', session)
+        
+        settings.userscore.innerText = snake.scores
+        localStorage.setItem(session[1], session)
+    }
 
     snake.reStart()
     game.reStart()

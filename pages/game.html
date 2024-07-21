@@ -28,7 +28,7 @@
             </div>
             <div class="settings-input">
                 <label for="numberFood"><p class="settings-input__label">food number</p></label>
-                <input type="number" name="" id="numberFood" class="settings-input__field" min="1" value="1">
+                <input type="number" name="" id="numberFood" class="settings-input__field" min="1" max="5" value="1">
             </div>
             <div class="settings-input">
                 <label for="colorTheme"><p class="settings-input__label">color theme</p></label>
@@ -52,7 +52,8 @@
                 <input type="checkbox" name="" id="AIPlay" class="settings-input__checkbox" disabled>
             </div>
         </form>
-    </div>
+
+   </div>
 
     <div class="game">
         <div class="game__back-to">
@@ -83,6 +84,12 @@
         </div>
         <div class="game__settings --button"></div>
     </div>
+    <div class="settings-userstats">
+        <h2 class="userstat-username">name</h2>
+        <p class="userstat-scores">scores: <span>1</span></p>
+        <p class="userstat-timeplayed">time played: <span>1:00</span></p>
+    </div>
+ 
     <script type="module" src="../script/game.js"></script>
 </body>
 </html>

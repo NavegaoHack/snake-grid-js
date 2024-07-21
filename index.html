@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/index.css">
 
 </head>
-<body>
+<body class="default">
 
     <!-- SETTINGS -->
     <div class="settings --hide-settings">
@@ -20,7 +20,7 @@
             </span>
         </div>
 
-        <form action="">
+        <form action="" autocomplete="off">
             <div class="settings-input">
                 <label for="snakeSpeed"><p class="settings-input__label">snake speed</p></label>
                 <input type="number" name="" id="snakeSpeed" class="settings-input__field" min="0" value="1">
@@ -51,12 +51,18 @@
                 <input type="checkbox" name="" id="AIPlay" class="settings-input__checkbox" disabled>
             </div>
         </form>
+
+        <div class="settings-userstats">
+            <h2 class="userstat-username"></h2>
+            <p class="userstat-scores"><span></span></p>
+            <p class="userstat-timeplayed"><span></span></p>
+        </div>
     </div>
 
     <div class="popup-login">
         <h3 class="popup-login__head">login</h3>
         <p class="popup-login__alert-msg"></p>
-        <form action="#">
+        <form action="#" autocomplete="off">
             <div class="login-input">
                 <label for="loginUsername"><p class="login-input__label">username:</p></label>
                 <input type="text" name="username" id="loginUsername" placeholder="name here" class="login-input__field">

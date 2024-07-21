@@ -22,42 +22,38 @@
         </div>
         <div class="users__container">
             <aside class="users__list">
-                <article class="user__list__client --button">
-                    <h2 class="user__list__clientname">manolo</h2>
-                </article>
-                <article class="user__list__client --button">
-                    <h2 class="user__list__clientname">elWeyDeTrivagogi</h2>
-                </article>
             </aside>
             <section class="user__stats">
                 <article class="user__stats__info">
-                    <p class="user__stats__name">
-                        <span class="user__stats--bold">name: </span>
-                        manolo
-                    </p>
-                    <p class="user__stats__email">
-                        <span class="user__stats--bold">email: </span>
-                        manolo<span class="--arroba">@</span>example.com
-                    </p>
-                    <p class="user__stats__scores">
-                        <span class="user__stats--bold">scores: </span>
-                        999
-                    </p>
-                    <p class="user__stats__time">
-                        <span class="user__stats--bold">time played: </span>
-                        10:00
-                    </p>
-                    <footer class="user__stats__options">
-                        <button class="user__stats__edit --button">
-                            <i class="fa-solid fa-pen --icon"></i>
-                        </button>
-                        <button class="user__stats__delete --button">
-                            <i class="fa-solid fa-trash-can --icon"></i>
-                        </button>
-                    </footer>
+                    <form action="" autocomplete="off">
+                        <p class="user__stats__name">
+                            name: 
+                            <span>---</span>
+                        </p>
+                        <p class="user__stats__email">
+                            email:
+                            <span>---</span>
+                            @example.com
+                        </p>
+                        <p class="user__stats__scores">
+                            scores: 
+                            <span>---</span>
+                        </p>
+                        <p class="user__stats__time">
+                            time played: 
+                            <span>--:--</span>
+                        </p>
+                        <footer class="user__stats__options">
+                            <button class="user__stats__delete --button" data-action="remove">
+                                <i class="fa-solid fa-trash-can --icon"></i>
+                                <p>remove</p>
+                            </button>
+                        </footer>
+                    </form>
                 </article>
             </section>
         </div>
     </div>
+    <script type="module" src="../script/users.js"></script>
 </body>
 </html>

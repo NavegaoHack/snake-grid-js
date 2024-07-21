@@ -1,7 +1,6 @@
 /* users section */
 
 .users {
-  width: 100vw;
   height: 100vh;
   background-color: var(--mid-blue);
   padding: 2rem;
@@ -12,9 +11,8 @@
 }
 
 .users__container {
-  width: 120rem;
   min-width: 80rem;
-  height: 100%;
+  height: calc( 100% - 4rem );
   margin: 0 auto;
   display: grid;
   grid-template-columns: 40rem 1fr;
@@ -61,14 +59,25 @@
 }
 .user__stats__options {
   position: absolute;
-  width: 50%;
+  width: 100%;
   bottom: 0;
   display: flex;
-  justify-content: space-between; 
+  justify-content: center; 
   height: 5rem;
+}
+
+.user__stats__options p {
+  color: var(--dark-blue);
+  font-size: 2rem;
 }
 .user__stats__edit,
 .user__stats__delete {
-  color: var(--mid-blue); 
+  color: var(--mid-blue);
+  width: 10rem
 }
 
+.edit-input__field {
+  background-color: #00000000;
+  border: none;
+  outline: none;
+}
