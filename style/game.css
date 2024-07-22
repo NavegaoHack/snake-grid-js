@@ -100,7 +100,6 @@
 
 .game__settings{
     position: absolute;
-    z-index: 30;
     bottom: 2rem;
     right: 2rem;
     width: 4rem;
@@ -133,4 +132,57 @@
 
 .userstat-scores span, .userstat-timeplayed span {
     font-size: 1.8rem;
+}
+
+.tactile-buttons {
+    display: none;
+}
+.tactile-buttons--btn {
+    background-color: var(--dark-blue);
+    border: 0;
+    width: 5rem;
+    height: 5rem;
+}
+
+@media (max-width: 800px) {
+    .settings-input__label {
+        font-size: 1.8rem;
+    }
+    .settings-input__field {
+        font-size: 1.8rem;
+    }
+    .settings-input__select {
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 1.6rem;
+    }
+
+    .game__main {
+        margin: 0;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .game__start-btn {
+        width: 15rem;
+        height: 4rem;
+    }
+    .game__start-btn-txt {
+        transform: rotate(0deg);
+    }
+    .game__scores__paragraph {
+        margin-bottom: 0;
+    }
+    .game__scores__paragraph--vertical {
+        transform: rotate(0deg);
+    }
+
+    .tactile-buttons {
+        display: block;
+        position: absolute;
+        bottom: 5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
 }

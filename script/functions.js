@@ -1,9 +1,10 @@
 import { settings, index } from "./dom.js";
-import { snake } from "./dom.js";
+import { snake, game } from "./dom.js";
 
 const clickListener = (element, func) => {
     element.addEventListener("click", func);
 }
+
 
 const keyListener = (func) => {
     document.addEventListener("keydown", func)
@@ -94,7 +95,7 @@ const randomTiles = (lenTiles) => {
     return Math.floor(Math.random() * lenTiles)
 }
 
-const randomDirection = (n) => {
+const chooseDirection = (n) => {
     const pos = {
         0: "left",
         1: "up",
@@ -105,6 +106,11 @@ const randomDirection = (n) => {
     if (autoCrash(pos[n])) return snake.direction
 
     return pos[n]
+}
+
+const resizeCanvas = ( size = 40, size2 = 35 ) => {
+    window.innerWidth < 800 ? game.setCanvasSize(size2) : game.setCanvasSize(size)
+    game.setTileSizes()
 }
 
 
@@ -119,5 +125,6 @@ export {
     equalPositions,
     generateNewFoodPos,
     randomTiles,
-    randomDirection
+    chooseDirection,
+    resizeCanvas
 }

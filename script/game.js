@@ -1,12 +1,15 @@
-import { clickListener, keyListener, keyboarControls } from "./functions.js";
+import { clickListener, keyListener, keyboarControls, resizeCanvas, chooseDirection } from "./functions.js";
 import { game, settings, snake } from "./dom.js";
 
 settings.setSettings()
 snake.scoresSum = +settings.snakeSpeed.value
 game.setFps(settings.snakeSpeed.value)
 game.setCanvasContext()
-game.setCanvasSize()
-game.setTileSizes()
+
+resizeCanvas()
+window.onresize = () => { resizeCanvas() }
+
+
 
 //setting tiles in the snake object
 snake.borderTile = game.tiles
@@ -14,7 +17,7 @@ snake.direction = "right"
 
 let playerLogged = false
 
-if (sessionStorage.length > 1) {
+if (sessionStorage.currentUser) {
     let session = sessionStorage.currentUser.split(",")
     settings.username.innerText = session[1]
     settings.userscore.innerText = session[2]
@@ -68,15 +71,28 @@ clickListener(settings.closeButton, () => {
 })
 
 // Reset game loop when snake speed is changed after reset fps
-clickListener(settings.snakeSpeed, () => {
+settings.snakeSpeed.addEventListener("change", () => {
     game.setFps(settings.snakeSpeed.value)
     snake.scoresSum = +settings.snakeSpeed.value
     game.gameLoop(main)
 })
 
+//listen digital controls for phones and tablets
+clickListener(game.digitalBtnLeft, () => {
+    snake.directionNum -= 1
+    if (snake.directionNum < 0) snake.directionNum = 3
+    snake.direction = chooseDirection(snake.directionNum)
+})
+clickListener(game.digitalBtnRight, () => {
+    snake.directionNum += 1
+    if (snake.directionNum > 3) snake.directionNum = 0
+    snake.direction = chooseDirection(snake.directionNum)
+})
+
+
 
 //change Snake speed
-clickListener(settings.foods, () => {snake.foodNumber = settings.foods.value})
+settings.foods.addEventListener("change", () => {snake.foodNumber = settings.foods.value})
 
 clickListener(game.restart, () => {
     if (game.notGameOver) return

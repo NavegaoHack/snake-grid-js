@@ -18,7 +18,6 @@
 }
 
 .users__container {
-  min-width: 80rem;
   height: calc( 100% - 4rem );
   margin: 0 auto;
   display: grid;
@@ -91,4 +90,21 @@
   background-color: #00000000;
   border: none;
   outline: none;
+}
+
+@media (max-width: 800px) {
+  .users__container {
+    width: 38rem;
+    grid-template-columns: 38rem;
+    grid-template-rows: 40rem 1fr;
+  }
+  .users__list {
+    border: none;
+    border-bottom: 2px solid var(--light-blue);
+  }
+  .user__stats__info form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

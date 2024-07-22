@@ -1,5 +1,5 @@
 import { settings, index, loginPopup, game, snake } from "./dom.js"
-import {clickListener, toggleShowSettings, randomTiles, randomDirection } from "./functions.js";
+import {clickListener, toggleShowSettings, randomTiles, chooseDirection, resizeCanvas} from "./functions.js";
 
 
 settings.setSettings()
@@ -7,20 +7,23 @@ console.log(settings)
 
 game.setFps(5)
 game.setCanvasContext()
-game.setCanvasSize(50)
-game.setTileSizes()
+
+resizeCanvas(50)
+window.onresize = () => { resizeCanvas(50) }
+
+
 snake.borderTile = game.tiles
 
 let i = 0
 let j = randomTiles(4)
-snake.direction = randomDirection(randomTiles(4))
+snake.direction = chooseDirection(randomTiles(4))
 const main = () => {
    
     if (game.notGameOver) {
         game.drawBackground()
         game.notGameOver = snake.moveSnake(snake.direction)
         if (i > j) {
-            snake.direction = randomDirection(randomTiles(4))
+            snake.direction = chooseDirection(randomTiles(4))
             j = randomTiles(4)
             i = -1
         }

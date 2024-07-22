@@ -19,6 +19,8 @@
     position: absolute;
     top: 0;
 }
+
+
 .index__logo__title--blurred {
     font-size: 10rem;
     filter: blur(4px);
@@ -139,6 +141,7 @@
     position: absolute;
     top: -200%;
     left: 50%;
+    z-index: 90;
     transform: translate(-50%, -80%);
     opacity: 0;
     width: 70rem;
@@ -208,4 +211,72 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width: 800px) {
+    .index__logo__title {
+        font-size: 8rem;
+    }
+    .index__logo__title--blurred {
+        font-size: 8rem;
+    }
+
+
+    canvas.game__canvas {
+        width: 35rem;
+        height: 35rem;
+    }
+
+    .index__buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+
+    .index__buttons__to {
+        width: 35rem;
+    }
+
+    .settings-input__label {
+        font-size: 1.8rem;
+    }
+    .settings-input__field {
+        font-size: 1.8rem;
+    }
+    .settings-input__select {
+        width: 10rem;
+        height: 2.5rem;
+        font-size: 1.6rem;
+    }
+
+    .popup-login {
+        width: 35rem;
+        height: 60rem;
+        padding-top: 6rem;
+    }
+
+    .popup-login__head {
+        font-size: 3.5rem;
+    }
+    .login-input {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .login-input__field {
+        text-align: center;
+    }
+    .popup-login__buttons {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+    .popup-back-btn, .popup-play-btn, .popup-login-btn {
+        width: 100%;
+
+    }
+    .popup-login-show {
+        transform: translate(-50%, -40%);
+    }
 }

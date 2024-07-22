@@ -182,6 +182,9 @@ class Game {
         this.notGameOver = true
         this.fps = null
         this.gameLoopID = null
+        this.digitalBtnLeft = $(".tactile-buttons--btn.-left")
+        this.digitalBtnRight = $(".tactile-buttons--btn.-right")
+
     }
 
     setCanvasContext() {
@@ -195,7 +198,7 @@ class Game {
     }
 
     setTileSizes() {
-        this.tileSize = Math.floor((this.canvasSize * 10) / this.tiles)
+        this.tileSize = (this.canvasSize * 10) / this.tiles
     }
 
     setFps(fps) {
@@ -269,6 +272,7 @@ class Snake {
         this.foods = [{x:15, y: 15}]
         this.foodNumber = 1
         this.direction = "right"
+        this.directionNum = 2
         this.borderTile = null
         this.scores = 0
         this.scoresSum = 5
@@ -337,6 +341,7 @@ class Snake {
         this.scores = 0
         this.direction = "right"
     }
+
 }
 
 const snake = new Snake()

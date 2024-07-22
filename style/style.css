@@ -104,6 +104,7 @@ p,h1,h2,h3,h4,span, input, input:autofill, select{
 
 .--icon-trash {
     height: 60%;
+    margin-left: 0
 }
 
 .--icon.--gear:hover {
@@ -117,4 +118,16 @@ p,h1,h2,h3,h4,span, input, input:autofill, select{
 
 .--opacity {
     opacity: 0.5;
+}
+
+
+@media (max-width: 800px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .--back-button {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
 }
